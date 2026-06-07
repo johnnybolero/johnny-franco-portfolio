@@ -111,6 +111,11 @@ export function HeroFigurine() {
         preload="auto"
       />
       <canvas ref={canvasRef} className="hero__figurine-img hero__figurine-canvas" />
+      <img
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_3ElIHjbwa8MreSuESdsMeQWVatB/hf_20260606_174406_1bdaf02c-9de3-43bf-b91d-497ac5a7903c.png"
+        alt="Johnny Franco figurine"
+        className="hero__figurine-img hero__figurine-static"
+      />
     </div>
   )
 }
