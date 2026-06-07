@@ -106,7 +106,6 @@ a {
   align-items: flex-end;
   min-height: 85vh;
   padding-bottom: 0;
-  overflow: hidden;
 }
 
 .hero__wordmark {
@@ -544,12 +543,6 @@ a {
 }
 
 /* ─── Figurine canvas vs static ────────────────────────────────── */
-.hero__figurine-img {
-  width: 220px;
-  height: auto;
-  display: block;
-}
-
 .hero__figurine-static {
   display: none;
 }
