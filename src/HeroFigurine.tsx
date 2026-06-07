@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react'
 
 const SCROLL_RANGE = 1200
 const SMOOTHING = 0.08
-const BACKGROUND_MIN = 165
-const BACKGROUND_SATURATION = 42
+const BACKGROUND_MIN = 225
+const BACKGROUND_SATURATION = 18
 export function HeroFigurine() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -36,15 +36,10 @@ export function HeroFigurine() {
         const min = Math.min(r, g, b)
         const max = Math.max(r, g, b)
         const saturation = max - min
-        const inFloorZone = y > height * 0.7
         const isBackground =
           min > BACKGROUND_MIN && saturation < BACKGROUND_SATURATION
-        const isLightFloorShadow =
-          inFloorZone && min > 120 && saturation < 60
-        const isDarkFloorShadow =
-          inFloorZone && max < 150 && saturation < 40
 
-        if (isBackground || isLightFloorShadow || isDarkFloorShadow) {
+        if (isBackground) {
           data[i + 3] = 0
         }
       }
