@@ -16,7 +16,7 @@ function App() {
           <span className="nav__logo">JAY FRANCO</span>
         </div>
         <div className="nav__right">
-          <a href="https://johnny-franco.myshopify.com" target="_blank" rel="noopener noreferrer" className="nav__pill nav__pill--light">SHOP</a>
+          <a href="https://johnny-franco.myshopify.com/collections/all" target="_blank" rel="noopener noreferrer" className="nav__pill nav__pill--light">SHOP</a>
           <a href="mailto:hello@johnnyfranco.nyc" className="nav__pill nav__pill--dark">GET IN TOUCH</a>
         </div>
       </nav>
