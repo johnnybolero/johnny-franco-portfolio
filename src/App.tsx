@@ -19,7 +19,7 @@ function App() {
           <span className="nav__logo">JAY FRANCO</span>
         </div>
         <div className="nav__right">
-          <a href="https://johnny-franco.myshopify.com/collections/all" target="_blank" rel="noopener noreferrer" className="nav__pill nav__pill--light">SHOP</a>
+          <a href="https://shop.johnnyfranco.nyc/collections/all" target="_blank" rel="noopener noreferrer" className="nav__pill nav__pill--light">SHOP</a>
           <a href="mailto:hello@johnnyfranco.nyc" className="nav__pill nav__pill--dark">GET IN TOUCH</a>
         </div>
 
@@ -39,7 +39,7 @@ function App() {
       <div className={`mobile-menu ${menuOpen ? 'mobile-menu--open' : ''}`}>
         <a href="#work" className="mobile-menu__link" onClick={() => setMenuOpen(false)}>WORK</a>
         <a href="#blog" className="mobile-menu__link" onClick={() => setMenuOpen(false)}>WRITING</a>
-        <a href="https://johnny-franco.myshopify.com/collections/all" target="_blank" rel="noopener noreferrer" className="mobile-menu__link" onClick={() => setMenuOpen(false)}>SHOP</a>
+        <a href="https://shop.johnnyfranco.nyc/collections/all" target="_blank" rel="noopener noreferrer" className="mobile-menu__link" onClick={() => setMenuOpen(false)}>SHOP</a>
         <a href="#about" className="mobile-menu__link" onClick={() => setMenuOpen(false)}>ABOUT</a>
         <a href="mailto:hello@johnnyfranco.nyc" className="mobile-menu__link mobile-menu__link--cta" onClick={() => setMenuOpen(false)}>GET IN TOUCH</a>
       </div>
