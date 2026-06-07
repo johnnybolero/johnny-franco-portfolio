@@ -106,6 +106,7 @@ a {
   align-items: flex-end;
   min-height: 85vh;
   padding-bottom: 0;
+  overflow: hidden;
 }
 
 .hero__wordmark {
@@ -661,8 +662,10 @@ a {
 
   /* HERO — side by side: CREATIVE left, figurine right */
   .hero {
-    min-height: 50vh;
-    padding-bottom: 16px;
+    min-height: auto;
+    height: auto;
+    padding-top: 16px;
+    padding-bottom: 0;
     overflow: visible;
     align-items: flex-end;
   }
