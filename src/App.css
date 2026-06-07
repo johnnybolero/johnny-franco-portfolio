@@ -545,18 +545,21 @@ a {
 /* ─── Figurine canvas vs static ────────────────────────────────── */
 .hero__figurine-static {
   display: none;
+}
+
+.hero__figurine-canvas {
+  display: block;
+}
+
+.hero__figurine-img {
   width: 220px;
   height: auto;
 }
 
-@media (min-width: 769px) {
-  .hero__figurine-canvas { display: block; }
-  .hero__figurine-static { display: none; }
-}
-
 @media (max-width: 768px) {
-  .hero__figurine-canvas { display: none !important; }
-  .hero__figurine-static { display: block !important; }
+  .hero__figurine-img {
+    width: 180px;
+  }
 }
 
 /* ─── Responsive ───────────────────────────────────────────────── */
