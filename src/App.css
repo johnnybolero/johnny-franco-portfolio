@@ -557,20 +557,11 @@ a {
   display: block;
 }
 
-@keyframes figurine-spin-mobile {
-  0%   { transform: rotateY(0deg); }
-  100% { transform: rotateY(360deg); }
-}
-
 @media (max-width: 768px) {
   .hero__figurine-canvas { display: none !important; }
   .hero__figurine-static {
     display: block !important;
     width: 180px;
-    perspective: 800px;
-    animation: figurine-spin-mobile 6s linear infinite;
-    transform-style: preserve-3d;
-    will-change: transform;
   }
 }
 
