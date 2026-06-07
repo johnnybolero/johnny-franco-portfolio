@@ -9,11 +9,13 @@ function App() {
         <div className="nav__left">
           <a href="#work" className="nav__pill nav__pill--light">WORK</a>
           <a href="#about" className="nav__pill nav__pill--light">ABOUT</a>
+          <a href="#blog" className="nav__pill nav__pill--light">BLOG</a>
         </div>
         <div className="nav__center">
           <span className="nav__logo">JAY FRANCO</span>
         </div>
         <div className="nav__right">
+          <a href="https://shop.johnnyfranco.nyc" className="nav__pill nav__pill--light">SHOP</a>
           <a href="mailto:hello@johnnyfranco.nyc" className="nav__pill nav__pill--dark">GET IN TOUCH</a>
         </div>
       </nav>
