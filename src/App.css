@@ -588,32 +588,47 @@ a {
     font-size: 11px;
   }
 
-  /* HERO */
+  /* HERO — stacked layout on mobile */
   .hero {
-    min-height: 55vh;
-    overflow: hidden;
+    min-height: auto;
+    padding-bottom: 24px;
+    overflow: visible;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
   }
 
   .hero__wordmark {
-    bottom: 8vh;
-    padding: 0 6px;
+    position: static;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    gap: 0;
   }
 
   .hero__word {
-    font-size: clamp(52px, 14vw, 100px);
+    font-size: clamp(56px, 18vw, 90px);
+    text-align: center;
+    white-space: normal;
+    order: 2;
+    width: 100%;
   }
 
   .hero__figurine {
-    transform: translate(-20px, 40px);
+    position: static;
+    transform: none;
+    order: 1;
+    margin-bottom: 8px;
   }
 
   .hero__figurine-static {
-    width: 160px;
+    width: 180px;
   }
 
-  /* WORK heading — match CREATIVE size on mobile */
+  /* WORK heading */
   .wordmark {
-    font-size: clamp(52px, 14vw, 100px);
+    font-size: clamp(48px, 16vw, 80px);
   }
 
   /* PROJECTS */
