@@ -31,8 +31,6 @@ export function HeroFigurine() {
         const r = data[i]
         const g = data[i + 1]
         const b = data[i + 2]
-        const pixel = i / 4
-        const y = Math.floor(pixel / width)
         const min = Math.min(r, g, b)
         const max = Math.max(r, g, b)
         const saturation = max - min
