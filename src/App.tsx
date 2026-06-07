@@ -1,5 +1,6 @@
 import './App.css'
 import { HeroFigurine } from './HeroFigurine'
+import { BlogSection } from './BlogSection'
 
 function App() {
   return (
@@ -76,6 +77,9 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* BLOG */}
+      <BlogSection />
 
       {/* BIO */}
       <section className="bio" id="about">
