@@ -565,23 +565,93 @@ a {
   }
 }
 
+/* ─── Hamburger + Mobile Menu ───────────────────────────────────── */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 200;
+}
+
+.nav__hamburger-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--black);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav__hamburger-bar.open:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav__hamburger-bar.open:nth-child(2) { opacity: 0; }
+.nav__hamburger-bar.open:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--white);
+  z-index: 150;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu--open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-menu__link {
+  font-family: var(--font-display);
+  font-size: 56px;
+  letter-spacing: -0.01em;
+  color: var(--black);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.mobile-menu__link:hover { opacity: 0.5; }
+
+.mobile-menu__link--cta {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  background: var(--black);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 999px;
+  margin-top: 8px;
+}
+
 /* ─── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .site {
     padding: 0 16px;
   }
 
-  /* NAV — simplify on mobile */
-  .nav {
-    padding: 14px 0;
-  }
-
-  .nav__left .nav__pill:not(:first-child) {
+  /* NAV — show only logo + hamburger on mobile */
+  .nav__left,
+  .nav__right {
     display: none;
   }
 
-  .nav__right .nav__pill:not(:last-child) {
-    display: none;
+  .nav__hamburger {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: flex;
   }
 
   .nav__logo {
@@ -589,52 +659,49 @@ a {
     letter-spacing: 0.08em;
   }
 
-  .nav__pill {
-    padding: 7px 14px;
-    font-size: 11px;
-  }
-
-  /* HERO — stacked layout on mobile */
+  /* HERO — side by side: CREATIVE left, figurine right */
   .hero {
-    min-height: auto;
-    padding-bottom: 24px;
+    min-height: 50vh;
+    padding-bottom: 16px;
     overflow: visible;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: flex-end;
   }
 
   .hero__wordmark {
     position: static;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
     width: 100%;
     padding: 0;
     gap: 0;
   }
 
   .hero__word {
-    font-size: clamp(56px, 18vw, 90px);
-    text-align: center;
-    white-space: normal;
-    order: 2;
-    width: 100%;
+    font-size: clamp(44px, 12vw, 60px);
+    white-space: nowrap;
+    flex: 1;
+    text-align: left;
+    line-height: 0.9;
   }
 
   .hero__figurine {
     position: static;
     transform: none;
-    order: 1;
-    margin-bottom: 8px;
+    flex-shrink: 0;
   }
 
   .hero__figurine-static {
-    width: 180px;
+    width: 150px;
   }
 
-  /* WORK heading */
+  /* Unified heading size across CREATIVE / WORK / WRITING */
   .wordmark {
-    font-size: clamp(48px, 16vw, 80px);
+    font-size: clamp(44px, 12vw, 60px);
+  }
+
+  .blog .wordmark {
+    font-size: clamp(44px, 12vw, 60px);
   }
 
   /* PROJECTS */

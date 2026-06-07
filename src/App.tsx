@@ -1,8 +1,11 @@
+import { useState } from 'react'
 import './App.css'
 import { HeroFigurine } from './HeroFigurine'
 import { BlogSection } from './BlogSection'
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <div className="site">
       {/* NAV */}
@@ -19,7 +22,27 @@ function App() {
           <a href="https://johnny-franco.myshopify.com/collections/all" target="_blank" rel="noopener noreferrer" className="nav__pill nav__pill--light">SHOP</a>
           <a href="mailto:hello@johnnyfranco.nyc" className="nav__pill nav__pill--dark">GET IN TOUCH</a>
         </div>
+
+        {/* Hamburger — mobile only */}
+        <button
+          className="nav__hamburger"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Menu"
+        >
+          <span className={`nav__hamburger-bar ${menuOpen ? 'open' : ''}`} />
+          <span className={`nav__hamburger-bar ${menuOpen ? 'open' : ''}`} />
+          <span className={`nav__hamburger-bar ${menuOpen ? 'open' : ''}`} />
+        </button>
       </nav>
+
+      {/* Mobile menu overlay */}
+      <div className={`mobile-menu ${menuOpen ? 'mobile-menu--open' : ''}`}>
+        <a href="#work" className="mobile-menu__link" onClick={() => setMenuOpen(false)}>WORK</a>
+        <a href="#blog" className="mobile-menu__link" onClick={() => setMenuOpen(false)}>WRITING</a>
+        <a href="https://johnny-franco.myshopify.com/collections/all" target="_blank" rel="noopener noreferrer" className="mobile-menu__link" onClick={() => setMenuOpen(false)}>SHOP</a>
+        <a href="#about" className="mobile-menu__link" onClick={() => setMenuOpen(false)}>ABOUT</a>
+        <a href="mailto:hello@johnnyfranco.nyc" className="mobile-menu__link mobile-menu__link--cta" onClick={() => setMenuOpen(false)}>GET IN TOUCH</a>
+      </div>
 
       {/* HERO */}
       <section className="hero">
