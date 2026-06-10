@@ -128,10 +128,10 @@ function App() {
       <footer className="footer">
         <div className="footer__col">
           <span className="footer__heading">SOCIALS</span>
-          <a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
-          <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer">DRIBBBLE</a>
+          <a href="https://www.linkedin.com/in/johnny-franco-389695158/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+          <a href="https://www.instagram.com/johnnymade.it/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+          <a href="https://www.youtube.com/@johnnybolero" target="_blank" rel="noopener noreferrer">YOUTUBE</a>
+          <a href="https://substack.com/@johnnyoappleseed" target="_blank" rel="noopener noreferrer">SUBSTACK</a>
         </div>
         <div className="footer__col">
           <span className="footer__heading">PAGES</span>
