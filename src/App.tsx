@@ -61,7 +61,7 @@ function App() {
       <section className="projects">
         <div className="projects__grid">
           {/* Full-width card */}
-          <div className="project-card project-card--full">
+          <a href="https://shop.johnnyfranco.nyc/collections/apparel" target="_blank" rel="noopener noreferrer" className="project-card project-card--full">
             <span className="project-card__label">Love Feliz</span>
             <div className="project-card__image-wrap">
               <img
@@ -70,7 +70,7 @@ function App() {
                 alt="Love Feliz"
               />
             </div>
-          </div>
+          </a>
 
           {/* Half-width cards */}
           <div className="project-card project-card--half">
