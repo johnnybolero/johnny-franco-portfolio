@@ -73,7 +73,7 @@ function App() {
           </a>
 
           {/* Half-width cards */}
-          <div className="project-card project-card--half">
+          <a href="https://shop.johnnyfranco.nyc/collections/digital" target="_blank" rel="noopener noreferrer" className="project-card project-card--half">
             <span className="project-card__label">Family Fotos</span>
             <div className="project-card__image-wrap">
               <img
@@ -82,7 +82,7 @@ function App() {
                 alt="Family Fotos"
               />
             </div>
-          </div>
+          </a>
 
           <div className="project-card project-card--half">
             <span className="project-card__label">Johnny Franco</span>
