@@ -84,7 +84,7 @@ function App() {
             </div>
           </a>
 
-          <div className="project-card project-card--half">
+          <a href="https://johnnyoappleseed.substack.com" target="_blank" rel="noopener noreferrer" className="project-card project-card--half">
             <span className="project-card__label">Johnny Franco</span>
             <div className="project-card__image-wrap">
               <img
@@ -93,7 +93,7 @@ function App() {
                 alt="Johnny Franco"
               />
             </div>
-          </div>
+          </a>
 
           <div className="project-card project-card--full project-card--text">
             <span className="project-card__title">Budget Quest</span>
