@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './BudgetQuestPage.css'
 
-const GAME_URL = 'https://charming-elf-910d47.netlify.app'
+const GAME_URL = 'https://celebrated-rabanadas-8819a1.netlify.app'
 
 export function BudgetQuestPage() {
   useEffect(() => {
