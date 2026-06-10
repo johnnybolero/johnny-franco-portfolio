@@ -1,0 +1,258 @@
+/* ── Budget Quest Page ─────────────────────────────────────── */
+
+.bq-page {
+  background: #08080f;
+  color: #fff;
+  min-height: 100vh;
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* Nav */
+.bq-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  border-bottom: 1px solid rgba(0, 232, 255, 0.2);
+}
+
+.bq-nav__back {
+  color: #00e8ff;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s;
+}
+
+.bq-nav__back:hover { opacity: 0.7; }
+
+.bq-nav__logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+
+/* Hero */
+.bq-hero {
+  position: relative;
+  text-align: center;
+  padding: 80px 32px 100px;
+  overflow: hidden;
+}
+
+.bq-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 232, 255, 0.03) 2px,
+    rgba(0, 232, 255, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bq-hero__sub {
+  position: relative;
+  z-index: 1;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: #00e8ff;
+  margin-bottom: 24px;
+}
+
+.bq-hero__title {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(40px, 8vw, 96px);
+  line-height: 1.15;
+  color: #fff;
+  text-shadow:
+    0 0 20px rgba(0, 232, 255, 0.8),
+    0 0 60px rgba(0, 232, 255, 0.4),
+    0 0 120px rgba(0, 232, 255, 0.2);
+  margin: 0 0 32px;
+}
+
+.bq-hero__desc {
+  position: relative;
+  z-index: 1;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(14px, 2vw, 18px);
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+
+/* Buttons */
+.bq-btn {
+  display: inline-block;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  padding: 16px 32px;
+  background: #00e8ff;
+  color: #08080f;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: box-shadow 0.2s, transform 0.1s;
+  position: relative;
+  z-index: 1;
+}
+
+.bq-btn:hover {
+  box-shadow: 0 0 24px rgba(0, 232, 255, 0.7), 0 0 60px rgba(0, 232, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.bq-btn--lg {
+  font-size: 14px;
+  padding: 20px 48px;
+  margin-top: 48px;
+}
+
+/* Features */
+.bq-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(0, 232, 255, 0.1);
+  border-top: 1px solid rgba(0, 232, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 232, 255, 0.2);
+}
+
+.bq-feature {
+  background: #08080f;
+  padding: 48px 32px;
+  text-align: center;
+}
+
+.bq-feature__icon {
+  display: block;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.bq-feature__title {
+  font-size: 11px;
+  color: #00e8ff;
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.bq-feature__desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Install */
+.bq-install {
+  padding: 80px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bq-install__title {
+  font-size: clamp(16px, 3vw, 28px);
+  color: #fff;
+  margin-bottom: 16px;
+  text-shadow: 0 0 20px rgba(0, 232, 255, 0.5);
+}
+
+.bq-install__subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 48px;
+}
+
+.bq-install__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: left;
+}
+
+.bq-install__card {
+  background: rgba(0, 232, 255, 0.05);
+  border: 1px solid rgba(0, 232, 255, 0.2);
+  padding: 32px 24px;
+}
+
+.bq-install__platform {
+  display: block;
+  font-size: 10px;
+  color: #00e8ff;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
+.bq-install__steps {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.75);
+  padding-left: 20px;
+  margin: 0;
+}
+
+.bq-install__steps li { margin-bottom: 10px; }
+
+.bq-install__steps a {
+  color: #00e8ff;
+  text-decoration: none;
+}
+
+.bq-install__steps a:hover { text-decoration: underline; }
+
+.bq-icon {
+  font-style: normal;
+  color: #00e8ff;
+}
+
+/* Footer */
+.bq-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px;
+  border-top: 1px solid rgba(0, 232, 255, 0.2);
+  font-size: 9px;
+}
+
+.bq-footer__back {
+  color: #00e8ff;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.bq-footer__back:hover { opacity: 0.7; }
+
+.bq-footer__copy { color: rgba(255,255,255,0.4); }
+
+/* ── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .bq-nav { padding: 20px; }
+
+  .bq-hero { padding: 60px 20px 80px; }
+
+  .bq-features {
+    grid-template-columns: 1fr;
+  }
+
+  .bq-install { padding: 60px 20px; }
+
+  .bq-install__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bq-footer { flex-direction: column; gap: 16px; text-align: center; }
+}

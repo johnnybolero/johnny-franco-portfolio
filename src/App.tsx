@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './App.css'
 import { HeroFigurine } from './HeroFigurine'
 import { BlogSection } from './BlogSection'
@@ -95,9 +96,9 @@ function App() {
             </div>
           </a>
 
-          <div className="project-card project-card--full project-card--text">
+          <Link to="/budget-quest" className="project-card project-card--full project-card--text">
             <span className="project-card__title">Budget Quest</span>
-          </div>
+          </Link>
         </div>
       </section>
 
