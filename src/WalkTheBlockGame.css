@@ -1,0 +1,615 @@
+/* ── Walk The Block ────────────────────────────────────────────── */
+
+.wtb-page {
+  position: fixed;
+  inset: 0;
+  background: #1b1330;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Nav */
+.wtb-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.wtb-nav__back {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  pointer-events: all;
+  backdrop-filter: blur(4px);
+}
+
+/* HUD */
+.wtb-hud {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 10px 16px;
+  border-radius: 14px;
+  backdrop-filter: blur(4px);
+}
+
+.wtb-hud__count {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: #ffd36e;
+}
+
+.wtb-hud__dots {
+  display: flex;
+  gap: 6px;
+}
+
+.wtb-hud__dot {
+  font-size: 16px;
+  opacity: 0.3;
+  filter: grayscale(1);
+  transition: opacity 0.3s, filter 0.3s;
+}
+
+.wtb-hud__dot--found {
+  opacity: 1;
+  filter: none;
+}
+
+/* Viewport / world */
+.wtb-viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.wtb-sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, #2b2150 0%, #5b3b6b 35%, #d97b53 72%, #f3b563 100%);
+}
+
+.wtb-skyline {
+  position: absolute;
+  left: 0;
+  bottom: 130px;
+  height: 320px;
+  width: 100%;
+  will-change: transform;
+}
+
+.wtb-skyline__building {
+  position: absolute;
+  bottom: 0;
+  background: #1b1330;
+  opacity: 0.55;
+}
+
+.wtb-world {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  will-change: transform;
+}
+
+.wtb-sidewalk {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 130px;
+  background: #74787c;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.08) 0,
+    rgba(255, 255, 255, 0.08) 2px,
+    transparent 2px,
+    transparent 90px
+  );
+  border-top: 4px solid #3f4347;
+}
+
+/* Buildings */
+.wtb-building {
+  position: absolute;
+  bottom: 130px;
+  border-radius: 2px 2px 0 0;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.25);
+}
+
+.wtb-window-grid {
+  display: grid;
+  gap: 10px;
+  padding: 16px 12px;
+}
+
+.wtb-window {
+  width: 18px;
+  height: 24px;
+  background: rgba(20, 14, 30, 0.55);
+  border-radius: 1px;
+}
+
+.wtb-window--lit {
+  background: #ffd36e;
+  box-shadow: 0 0 8px rgba(255, 211, 110, 0.6);
+}
+
+/* Storefronts */
+.wtb-storefront {
+  position: absolute;
+  bottom: 130px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wtb-storefront__building {
+  width: 220px;
+  height: 220px;
+  background: #2a2138;
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.3);
+}
+
+.wtb-storefront__window {
+  width: 160px;
+  height: 130px;
+  background: rgba(255, 211, 110, 0.18);
+  border: 4px solid #1b1330;
+  border-radius: 4px;
+  margin-bottom: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wtb-storefront__window-icon {
+  font-size: 46px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+}
+
+.wtb-storefront__door {
+  position: absolute;
+  bottom: 0;
+  width: 56px;
+  height: 76px;
+  background: #1b1330;
+  border-radius: 4px 4px 0 0;
+}
+
+.wtb-storefront__awning {
+  width: 230px;
+  height: 26px;
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%);
+  margin-bottom: -2px;
+}
+
+.wtb-storefront__sign {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: #1b1330;
+  padding: 6px 14px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.wtb-storefront__found {
+  position: absolute;
+  top: -14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #1b1330;
+  background: #6fd17a;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* Floating artifact marker */
+.wtb-marker {
+  position: absolute;
+  top: -56px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 211, 110, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: wtb-bob 1.6s ease-in-out infinite;
+}
+
+.wtb-marker__icon {
+  font-size: 26px;
+}
+
+.wtb-marker--near {
+  background: rgba(255, 211, 110, 0.55);
+  box-shadow: 0 0 24px rgba(255, 211, 110, 0.8);
+}
+
+@keyframes wtb-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Street props */
+.wtb-lamp {
+  position: absolute;
+  bottom: 130px;
+  width: 6px;
+  height: 140px;
+  background: #2a2a2a;
+}
+
+.wtb-lamp::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -7px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffe6a3;
+  box-shadow: 0 0 18px 6px rgba(255, 230, 163, 0.6);
+}
+
+.wtb-hydrant {
+  position: absolute;
+  bottom: 130px;
+  width: 18px;
+  height: 32px;
+  background: #c0473e;
+  border-radius: 6px 6px 2px 2px;
+}
+
+.wtb-tree {
+  position: absolute;
+  bottom: 130px;
+  width: 14px;
+  height: 50px;
+  background: #5b4339;
+}
+
+.wtb-tree::after {
+  content: '';
+  position: absolute;
+  top: -46px;
+  left: -23px;
+  width: 60px;
+  height: 56px;
+  border-radius: 50%;
+  background: #3f7a4d;
+}
+
+.wtb-home {
+  position: absolute;
+  bottom: 130px;
+  width: 160px;
+  height: 200px;
+  background: #43505e;
+  border-radius: 4px 4px 0 0;
+}
+
+.wtb-home__label {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  background: #1b1330;
+  padding: 5px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.wtb-subway {
+  position: absolute;
+  bottom: 130px;
+  width: 160px;
+  height: 60px;
+  background: #1b1330;
+  border-radius: 8px 8px 0 0;
+}
+
+.wtb-subway__label {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  background: #1b1330;
+  padding: 5px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* Player */
+.wtb-player {
+  position: absolute;
+  bottom: 130px;
+  width: 1px;
+  height: 1px;
+}
+
+.wtb-player__shadow {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 14px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.wtb-sprite {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 168px;
+  width: auto;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35));
+  animation: wtb-idle 2.4s ease-in-out infinite;
+}
+
+.wtb-sprite--facing-left {
+  transform: translateX(-50%) scaleX(-1);
+}
+
+.wtb-sprite--walking {
+  animation: wtb-walk 0.4s ease-in-out infinite;
+}
+
+@keyframes wtb-idle {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-3px); }
+}
+
+@keyframes wtb-walk {
+  0%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+  50% { transform: translateX(-50%) translateY(-8px) rotate(-2deg); }
+}
+
+.wtb-sprite--facing-left.wtb-sprite--walking {
+  animation: wtb-walk-left 0.4s ease-in-out infinite;
+}
+
+@keyframes wtb-walk-left {
+  0%, 100% { transform: translateX(-50%) scaleX(-1) translateY(0) rotate(0deg); }
+  50% { transform: translateX(-50%) scaleX(-1) translateY(-8px) rotate(-2deg); }
+}
+
+/* Prompt */
+.wtb-prompt {
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  z-index: 35;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+}
+
+.wtb-prompt kbd {
+  background: #fff;
+  color: #1b1330;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  margin: 0 2px;
+}
+
+.wtb-prompt__btn {
+  color: #ffd36e;
+}
+
+/* Touch controls */
+.wtb-controls {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 35;
+}
+
+.wtb-controls__btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 24px;
+  backdrop-filter: blur(6px);
+  touch-action: none;
+}
+
+.wtb-controls__btn--interact {
+  background: rgba(255, 255, 255, 0.12);
+  opacity: 0.5;
+}
+
+.wtb-controls__btn--active {
+  opacity: 1;
+  background: rgba(255, 211, 110, 0.55);
+  box-shadow: 0 0 20px rgba(255, 211, 110, 0.6);
+}
+
+@media (max-width: 900px) {
+  .wtb-controls { display: flex; }
+}
+
+/* Overlays */
+.wtb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 6, 20, 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+  padding: 24px;
+  backdrop-filter: blur(2px);
+}
+
+.wtb-overlay__card {
+  background: #1b1330;
+  border: 1px solid rgba(255, 211, 110, 0.3);
+  border-radius: 18px;
+  padding: 40px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.wtb-overlay__icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.wtb-overlay__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(24px, 5vw, 36px);
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+  color: #ffd36e;
+}
+
+.wtb-overlay__title--sm {
+  font-size: 22px;
+}
+
+.wtb-overlay__desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 24px;
+}
+
+.wtb-overlay__list {
+  list-style: none;
+  text-align: left;
+  font-size: 13px;
+  line-height: 2;
+  color: rgba(255,255,255,0.8);
+  margin: 0 auto 28px;
+  display: inline-block;
+}
+
+.wtb-overlay__list kbd {
+  background: rgba(255,255,255,0.12);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-right: 2px;
+}
+
+.wtb-overlay__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.wtb-overlay__links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.wtb-overlay__link {
+  color: #ffd36e;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255, 211, 110, 0.08);
+  transition: background 0.2s;
+}
+
+.wtb-overlay__link:hover {
+  background: rgba(255, 211, 110, 0.18);
+}
+
+.wtb-btn {
+  display: inline-block;
+  background: #ffd36e;
+  color: #1b1330;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.wtb-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 211, 110, 0.4);
+}
+
+.wtb-btn--ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+@media (max-width: 600px) {
+  .wtb-overlay__card { padding: 28px 22px; }
+  .wtb-hud { padding: 8px 12px; }
+  .wtb-nav__back { padding: 6px 12px; font-size: 11px; }
+}

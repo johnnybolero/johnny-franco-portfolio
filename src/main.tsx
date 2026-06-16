@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import { BudgetQuestPage } from './BudgetQuestPage.tsx'
+import { WalkTheBlockPage } from './WalkTheBlockPage.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -11,6 +12,7 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/budget-quest" element={<BudgetQuestPage />} />
+        <Route path="/walk-the-block" element={<WalkTheBlockPage />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

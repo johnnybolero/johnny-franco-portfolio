@@ -99,6 +99,12 @@ function App() {
           <Link to="/budget-quest" className="project-card project-card--full project-card--text">
             <span className="project-card__title">Budget Quest</span>
           </Link>
+
+          <Link to="/walk-the-block" className="project-card project-card--full project-card--block">
+            <span className="project-card__label">Mini Game</span>
+            <span className="project-card__title project-card__title--block">Walk The Block</span>
+            <span className="project-card__sub">An NYC artifact hunt through Johnny's projects</span>
+          </Link>
         </div>
       </section>
 

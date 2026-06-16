@@ -253,6 +253,34 @@ a {
   z-index: 2;
 }
 
+.project-card--block {
+  background: linear-gradient(160deg, #2b2150 0%, #5b3b6b 45%, #c0473e 100%);
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  text-align: center;
+}
+
+.project-card--block .project-card__label {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.project-card__title--block {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 5vw, 56px);
+  color: #ffd36e;
+  text-shadow: 0 0 24px rgba(255, 211, 110, 0.4);
+  letter-spacing: 0.01em;
+}
+
+.project-card__sub {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 360px;
+}
+
 .project-card__mockup {
   flex: 1;
   display: flex;
